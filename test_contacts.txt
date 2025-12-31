@@ -1,0 +1,22 @@
+# test_contacts.py
+# Basic testing for Contact Management System
+
+from contacts_manager import clean_phone, validate_email
+
+def run_tests():
+    print("Running basic tests...\n")
+
+    # Phone validation tests
+    assert clean_phone("1234567890") == "1234567890"
+    assert clean_phone("+1 (234) 567-8900") == "12345678900"
+    assert clean_phone("123") is None
+
+    # Email validation tests
+    assert validate_email("test@example.com") is True
+    assert validate_email("") is True
+    assert validate_email("invalid-email") is False
+
+    print("✔ All tests passed successfully!")
+
+if __name__ == "__main__":
+    run_tests()
